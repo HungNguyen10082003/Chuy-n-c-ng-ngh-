@@ -1,7 +1,7 @@
-from django.contrib import admin
-from .models import Group, Item, Feedback, Purchase
+from django import admin
+from .model import Item
 
-admin.site.register(Group)
-admin.site.register(Item)
-admin.site.register(Feedback)
-admin.site.register(Purchase)
+@admin.register(Item)
+class ItemAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name', 'status')  # Thay đổi theo trường của model Item
+    search_fields = ('name',)
